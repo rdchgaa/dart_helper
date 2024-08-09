@@ -33,7 +33,7 @@ int,double,String,bool,DateTime,List,Map,enum,class
 *199.232.4.133   raw.githubusercontent.com
 
 [gitee地址](https://gitee.com/wskfjt/dart_helper)
-[github地址](https://github.com/wskfjtheqian/dart_helper)
+[github地址](https://github.com/rdchgaa/dart_helper)
 
 
 ```dart
