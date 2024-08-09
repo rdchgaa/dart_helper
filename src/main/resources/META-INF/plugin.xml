@@ -1,0 +1,113 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>dart.helper.exgou.cn</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Dart_helper</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="wskfjtheqian@gmail.com" url="https://github.com/wskfjtheqian">wskfjtheqian</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+        Dart language development aids,
+        <br>
+        Dart 语言开发助手
+        <br>
+        1. Create dart file based on JSON data    <br>
+        一. 根据Json数据创建 Dart 文件(支持中文Json Key)
+        <br>
+        2. Add dart class according to JSON data      <br>
+        二. 根据Json数据创建 Dart 类(支持中文Json Key)
+        <br>
+        3. Add formMap function       <br>
+        三. 添加 formMap 函数用于解析 Json
+        <br>
+        4. Add toMap function         <br>
+        四. 添加 toMap 函数用于生成中文
+        <br>
+        5. Add copyWith function    <br>
+        五.添加 copyWith 函数
+        <br>
+        6. Add copyFill function    <br>
+        六.添加 copyFill 函数
+        <br>
+        7. Add merge function    <br>
+        七.添加 merge 函数
+        <br>
+        <br>
+        Support data types
+        <br>
+        Int, double, string, bool, datetime, list, map, enum, class, generic
+        <br>
+        8. Add auto create dio request code    <br>
+        8. 根据函数自动添加 dio 请求代码
+        <br>
+        Automatic translation Json Key    <br>
+        自动翻译Json Key
+        <br>
+        空安全支持
+        <br>
+    ]]></description>
+
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>Dart</depends>
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+
+    <actions>
+        <action id="josn.to.dart.object" class="com.exgou.heqain.dart.helper.news.JsonToDartObjectAction"
+                icon="/icons/dart_iocn.png"
+                text="JsonToDartObjectAction" description="JsonToDartObjectAction">
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFromTemplate"/>
+        </action>
+
+        <group id="Dart.Generate.Helper" icon="/icons/dart_iocn.png" popup="true" text="Dart helper">
+            <add-to-group anchor="after" relative-to-action="Generate.Constructor.Dart" group-id="GenerateGroup"/>
+            <action id="Dart.Generate.Named.Action" icon="/icons/dart_iocn.png"
+                    class="com.exgou.heqain.dart.helper.generate.name.DartGenerateNamedAction"
+                    text="Dart Generate Name">
+            </action>
+            <action id="Dart.Generate.formMap.Action" icon="/icons/dart_iocn.png"
+                    class="com.exgou.heqain.dart.helper.generate.bymap.DartGenerateFromMapAction"
+                    text="Dart Generate FormMap">
+            </action>
+            <action id="Dart.Generate.toMap.Action" icon="/icons/dart_iocn.png"
+                    class="com.exgou.heqain.dart.helper.generate.bymap.DartGenerateToMapAction"
+                    text="Dart Generate ToMap">
+            </action>
+            <action id="Dart.Generate.Copy.With.Action" icon="/icons/dart_iocn.png"
+                    class="com.exgou.heqain.dart.helper.generate.copy.with.DartGenerateCopyAction"
+                    text="Dart Generate CopyWith">
+            </action>
+            <action id="Dart.Generate.Copy.Fill.Action" icon="/icons/dart_iocn.png"
+                    class="com.exgou.heqain.dart.helper.generate.copy.fill.DartGenerateCopyAction"
+                    text="Dart Generate CopyFill">
+            </action>
+            <action id="Dart.Generate.Merge.Action" icon="/icons/dart_iocn.png"
+                    class="com.exgou.heqain.dart.helper.generate.copy.merge.DartGenerateMergeAction"
+                    text="Dart Generate Merge">
+            </action>
+            <action id="Dart.Generate.Network.Request.Action" icon="/icons/dart_iocn.png"
+                    class="com.exgou.heqain.dart.helper.generate.network.DartGenerateRequestAction"
+                    text="Dart Generate Request">
+            </action>
+        </group>
+
+        <action id="Dart.Generate.AddClassByJson.Action" icon="/icons/dart_iocn.png"
+                class="com.exgou.heqain.dart.helper.generate.json.AddClassByJsonAction"
+                text="Add Class By Json">
+            <add-to-group anchor="after" relative-to-action="Generate.Constructor.Dart" group-id="GenerateGroup"/>
+        </action>
+    </actions>
+</idea-plugin>
